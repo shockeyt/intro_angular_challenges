@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html> <!-- add ng-app="appTwo" to the body tag here -->
+<html ng-app="appTwo"> <!-- add ng-app="appTwo" to the body tag here -->
 <head>
   <title>Challenge 2</title>
   <meta charset="utf8" />
@@ -10,7 +10,9 @@
   <script src="http://code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <!-- add Angular javascript here -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
   <script src="js/app.js"></script>
+  
 </head>
 <body>
 
@@ -90,7 +92,7 @@ function WelcomeController(){
           I grew up in {{ welcomeCont.city || "???" }}, {{ welcomeCont.state || "??" }}
         </li>
         <li>
-          There are {{ "?" }} letters in my name
+          There are {{ 5 }} letters in my name
         </li>
         <li>
           <!-- HINT: create a 'shout' function in your controller! -->
@@ -100,18 +102,18 @@ function WelcomeController(){
     </section>
   </div>
 
-  <div id="add-your-controller"> <!-- HINT: Wrap this exercise in a new controller -->
+  <div data-ng-controller="ExerciseController as exerciseCont"> <!-- HINT: Wrap this exercise in a new controller -->
     <section class="exercises">
       <h4>Exercise #2:</h4>
       <p>Can you create a second controller for this exercise and then dynamically fill in the blanks?</p>
       <p>Describe your WDI class:</p>
       <ol>
-        <li>Class Name: {{ "class_name" }}</li>
-        <li>Students: {{ "enrolled_students" }}</li>
-        <li>Start: {{ "start_date" }}</li>
-        <li>End: {{ "end_date" }}</li>
+        <li>Class Name: {{ exerciseCont.class_name }}</li>
+        <li>Students: {{ exerciseCont.enrolled_students }}</li>
+        <li>Start: {{ exerciseCont.start_date }}</li>
+        <li>End: {{ exerciseCont.end_date }}</li>
         <!-- HINT: Create a daysRemaining() function in your controller that calculate this -->
-        <li>Days Left: {{ "daysRemaining()" }}</li>
+        <li>Days Left: {{ exerciseCont.daysRemaining() }}</li>
       </ol>
     </section>
   </div>
